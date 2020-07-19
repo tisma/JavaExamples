@@ -4,7 +4,8 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build NativeJNA'
-        sh 'sh NativeJNA/compile_and_run_java.sh'
+        sh '''cd NativeJNA
+sh compile_and_run_java.sh'''
       }
     }
 
