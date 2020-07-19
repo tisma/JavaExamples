@@ -3,9 +3,17 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        echo 'Build library'
+        sh '''cd NativeJNA
+make'''
+      }
+    }
+
+    stage('Build JavaJNA') {
+      steps {
         echo 'Build NativeJNA'
-        sh '''sh run_build_script.sh
-'''
+        sh '''cd NativeJNA
+sh compile_and_run_java.sh'''
       }
     }
 
